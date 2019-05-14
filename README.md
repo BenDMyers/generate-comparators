@@ -56,7 +56,7 @@ npm install generate-comparators
 yarn add generate-comparators
 ```
 
-Import the package's two functions into your Node project using either `require` or, if you're using Babel, `import`:
+Import the package's two functions into your Node project using either `require` or, if you're transpiling ES6, `import`:
 
 ```js
 // With `require`
@@ -82,7 +82,7 @@ Returns an object with two properties, `asc` and `desc`.
 
     * **NOTE:** This is not necessarily the same as a reversed ascending order. `sort` sorts an array left-to-right, so when two equivalent elements are compared, the leftmost one will stay to the left.
 
-> **NOTE:** I recommend naming this object `byX`, where *X* is the property or attribute the comparators check on. This has the advantage of being both terse and legible.
+> **NOTE:** I recommend usng the naming convention `byX` for this object, where *X* is the property or attribute the comparators check on. This has the advantage of being both terse and legible.
 
 #### `toComparable : function`
 
@@ -101,7 +101,7 @@ for `toComparable`.
 * Sorting arrays of primitives using the identity function `element => element` (default behavior for `array.sort()`):
 
 ```js
-import {comparators} from 'generate-comparators';
+const {comparators} = require('generate-comparators');
 
 const numbers = [5, 2, 7, -3, 0];
 const strings = ['the', 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog'];
@@ -120,7 +120,7 @@ strings.sort(byIdentity.desc); // ['the', 'the', 'quick', 'over', 'lazy', 'jumpe
 * Sorting an array of strings by length:
 
 ```js
-import {comparators} from 'generate-comparators';
+const {comparators} = require('generate-comparators');
 
 const strings = ['the', 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog'];
 
@@ -130,13 +130,13 @@ const byLength = comparators(element => element.length);
 strings.sort(byLength.asc); // ['the', 'fox', 'the', 'dog', 'over', 'lazy', 'quick', 'brown', 'jumped']
 
 // Descending
-strings.sort(byLength.desc); // ['jumped', 'quick', 'brown', 'lazy', 'over', 'the', 'fox', 'the', 'dog']
+strings.sort(byLength.desc); // ['jumped', 'quick', 'brown', 'over', 'lazy', 'the', 'fox', 'the', 'dog']
 ```
 
 * Sorting an array of person objects by the number of vowels in their first and last name:
 
 ```js
-import {comparators} from 'generate-comparators';
+const {comparators} = require('generate-comparators');
 
 const people = [
     {lastName: 'Lovelace', firstName: 'Ada', birthYear: 1815},
@@ -150,19 +150,19 @@ const byVowelsInName = comparators(element => getVowelCount(element.firstName + 
 // Ascending
 
 /*  {lastName: 'Turing', firstName: 'Alan', birthYear: 1936},
- *  {lastName: 'Babbage', firstName: 'Charles', birthYear: 1930}
  *  {lastName: 'Lovelace', firstName: 'Ada', birthYear: 1815},
- *  {lastName: 'Boole', firstName: 'George', birthYear: 1860},
+ *  {lastName: 'Babbage', firstName: 'Charles', birthYear: 1930},
+ *  {lastName: 'Boole', firstName: 'George', birthYear: 1860}
 */
 people.sort(byVowelsInName.asc);
 
 // Descending
 
-/*  {lastName: 'Lovelace', firstName: 'Ada', birthYear: 1815},
- *  {lastName: 'Boole', firstName: 'George', birthYear: 1860},
- *  {lastName: 'Babbage', firstName: 'Charles', birthYear: 1930}
- *  {lastName: 'Turing', firstName: 'Alan', birthYear: 1936},
-*/
+/*  {lastName: 'Boole', firstName: 'George', birthYear: 1860},
+ *  {lastName: 'Lovelace', firstName: 'Ada', birthYear: 1815},
+ *  {lastName: 'Babbage', firstName: 'Charles', birthYear: 1930},
+ *  {lastName: 'Turing', firstName: 'Alan', birthYear: 1936}
+ */
 people.sort(byVowelsInName.desc);
 ```
 
@@ -185,7 +185,7 @@ Returns an object with two properties, `asc` and `desc`.
 * Sorting an array of person objects first by age (descending), then by last name (ascending), then by first name (descending)
 
 ```js
-import {comparators, composeComparators} from 'generate-comparators';
+const {comparators, composeComparators} = require('generate-comparators');
 
 const people = [
     {lastName: 'Doe', firstName: 'John', age: 42},
@@ -211,8 +211,8 @@ people.sort(composed.asc);
 
 // Descending
 /* {lastName: 'Lovelace', firstName: 'Ada', age: 2},
- * {lastName: 'Doe', firstName: 'John', age: 42},
  * {lastName: 'Doe', firstName: 'Jane', age: 42},
+ * {lastName: 'Doe', firstName: 'John', age: 42},
  * {lastName: 'Boole', firstName: 'George', age: 67},
  * {lastName: 'Hamilton', firstName: 'Margaret', age: 100}
  */

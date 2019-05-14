@@ -1,7 +1,7 @@
 {
   "name": "generate-comparators",
   "version": "1.0.0",
-  "description": "Minimize the boilerplate for generating and combining comparator functions for sorting!",
+  "description": "Create complex comparators, tersely and beautifully.",
   "repository": {
     "type" : "git",
     "url" : "https://github.com/BenDMyers/generate-comparators.git"
@@ -20,7 +20,7 @@
     "compare"
   ],
   "author": "Ben Myers <ben@benmyers.dev> (https://benmyers.dev/)",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-preset-es2015": "6.24.1",
