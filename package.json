@@ -1,10 +1,10 @@
 {
   "name": "generate-comparators",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create complex comparators, tersely and beautifully.",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/BenDMyers/generate-comparators.git"
+    "type": "git",
+    "url": "https://github.com/BenDMyers/generate-comparators.git"
   },
   "bugs": "https://github.com/BenDMyers/generate-comparators/issues",
   "main": "./lib/index.js",
