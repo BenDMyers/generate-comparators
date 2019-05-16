@@ -2,6 +2,23 @@
 
 **Create complex comparators, tersely and beautifully.**
 
+[![npm package](https://nodei.co/npm/generate-comparators.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/generate-comparators/)
+
+***
+
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [What Are Comparators, and Why Do I Need This Library?](#what-are-comparators-and-why-do-i-need-this-library)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+	- [`comparators(toComparable)`](#comparatorstocomparable)
+		- [`toComparable : function`](#tocomparable-function)
+		- [Example Uses](#example-uses)
+	- [`composeComparators(...comparators)`](#composecomparatorscomparators)
+		- [Examples](#examples)
+
+<!-- /TOC -->
+
 ***
 
 ## What Are Comparators, and Why Do I Need This Library?
@@ -82,7 +99,7 @@ Returns an object with two properties, `asc` and `desc`.
 
     * **NOTE:** This is not necessarily the same as a reversed ascending order. `sort` sorts an array left-to-right, so when two equivalent elements are compared, the leftmost one will stay to the left.
 
-> **NOTE:** I recommend usng the naming convention `byX` for this object, where *X* is the property or attribute the comparators check on. This has the advantage of being both terse and legible.
+> **NOTE:** I recommend using the naming convention `byX` for this object, where *X* is the property or attribute the comparators check on. This has the advantage of being both terse and legible.
 
 #### `toComparable : function`
 
@@ -170,7 +187,7 @@ people.sort(byVowelsInName.desc);
 
 Receives >0 comparators and combines them into new ascending and descending comparators.
 
-The new comparators will first compare the two elements using `comparators[0]`. If they are equivalent, they will be compared with `comparators[1]` and so forth until all comparators have compared the elements. If they elements are still equivalent, the composed comparator will return `0`. Because the composed comparator iterates over the given comparators from left to right, the position of each comparator matters.
+The new comparators will first compare the two elements using `comparators[0]`. If they are equivalent, they will be compared with `comparators[1]` and so forth until all comparators have compared the elements. If the elements are still equivalent, the composed comparator will return `0`. Because the composed comparator iterates over the given comparators from left to right, the position of each comparator matters.
 
 Returns an object with two properties, `asc` and `desc`.
 
