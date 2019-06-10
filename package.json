@@ -1,6 +1,6 @@
 {
   "name": "generate-comparators",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create complex comparators, tersely and beautifully.",
   "repository": {
     "type": "git",
@@ -9,8 +9,8 @@
   "bugs": "https://github.com/BenDMyers/generate-comparators/issues",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "babel src --presets babel-preset-es2015 --out-dir lib",
-    "prepublish": "npm run build",
+    "build": "babel src --out-dir lib",
+    "prepublishOnly": "npm run build",
     "test": "mocha"
   },
   "keywords": [
@@ -22,8 +22,9 @@
   "author": "Ben Myers <ben@benmyers.dev> (https://benmyers.dev/)",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-preset-es2015": "6.24.1",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
     "chai": "4.2.0",
     "mocha": "6.1.4"
   }
