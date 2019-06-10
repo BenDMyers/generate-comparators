@@ -1,6 +1,6 @@
 {
   "name": "generate-comparators",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Create complex comparators, tersely and beautifully.",
   "repository": {
     "type": "git",
