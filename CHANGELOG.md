@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.0.3
+
+* Included `.babelrc` in `.npmignore`
+
 ## v1.0.2
 
 * Updated Babel tools
